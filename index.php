@@ -2,5 +2,9 @@
 
 declare(strict_types=1);
 
-echo('Hello Tanya');
+require_once __DIR__ . '/vendor/autoload.php';
+
+$obj = new Auth\Test();
+$obj->execute();
+
 
