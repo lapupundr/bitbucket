@@ -3,5 +3,8 @@
     "psr-4": {
       "Auth\\": "app"
     }
+  },
+  "require": {
+    "twig/twig": "^3.0"
   }
 }
