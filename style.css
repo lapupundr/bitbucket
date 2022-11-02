@@ -1,3 +1,16 @@
 header {
     color: red;
 }
+
+form div {
+    margin: 10px 5px;
+}
+
+input:invalid{
+    border-color: #900;
+    background-color: #FDD;
+}
+
+input:focus:invalid {
+    outline: none;
+}

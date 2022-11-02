@@ -18,6 +18,41 @@
 
     <main>
         <div>Hello twig Reg</div>
+        <form>
+            <div>
+                <label for="login">
+                    <span>Please enter login:</span>
+                    <input type="text" id="login" name="login" required minlength="6">
+{#                    <span class="error" aria-live="polite"></span>#}
+                </label>
+            </div>
+            <div>
+                <label for="password">
+                    <span>Please enter password:</span>
+                    <input type="text" id="password" name="password" required minlength="6">
+                </label>
+            </div>
+            <div>
+                <label for="password_confirm">
+                    <span>Please confirm password:</span>
+                    <input type="text" id="password_confirm" name="password_confirm" required minlength="6">
+                </label>
+            </div>
+            <div>
+                <label for="mail">
+                    <span>Please enter an email address:</span>
+                    <input type="email" id="mail" name="mail" required>
+                </label>
+            </div>
+            <div>
+                <label for="name">
+                    <span>Please enter name:</span>
+                    <input type="text" id="name" name="name" required minlength="2">
+                </label>
+            </div>
+            <button>Submit</button>
+        </form>
+
     </main>
 
     <footer>
