@@ -4,7 +4,7 @@ $(document).ready(function () {
     $("#btn").click(
         function () {
             alert('Нажата submit-кнопка');
-            sendAjaxForm('result_form', 'form_reg', '/form.php');
+            sendAjaxForm('result_form', 'form_reg', '/RegistrationPost');
             return false;
         }
     );
