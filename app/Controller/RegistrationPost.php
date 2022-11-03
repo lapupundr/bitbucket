@@ -9,19 +9,24 @@ class RegistrationPost implements JsonResultInterface
      */
     public function execute(): void
     {
-        if (isset($_POST["login"]) && isset($_POST["pass"])) {
+        if ($_SERVER['HTTP_X_REQUESTED_WITH'] === 'XMLHttpRequest') {
 
-            $result = array(
-                'login' => $_POST["login"],
-                'pass' => $_POST["pass"],
-                'pass_confirm' => $_POST['pass_confirm'],
-                'mail' => $_POST['mail'],
-                'name' => $_POST['name']
-            );
+            if (isset($_POST["login"]) && isset($_POST["pass"])) {
 
-            $result = json_encode($result);
-            echo $result;
+                $result = array(
+                    'login' => $_POST["login"],
+                    'pass' => $_POST["pass"],
+                    'pass_confirm' => $_POST['pass_confirm'],
+                    'mail' => $_POST['mail'],
+                    'name' => $_POST['name']
+                );
+
+                $result = json_encode($result);
+                echo $result;
 //            return $result;
+            }
+        } else {
+            echo ('Denied');
         }
     }
 }
