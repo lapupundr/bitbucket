@@ -8,7 +8,9 @@
     {% block stylesheets %}
         <link rel="stylesheet" href="/style.css">
     {% endblock %}
-    <title>Authorization</title>
+
+
+    <title>Registration</title>
 </head>
 <body>
     <header>
@@ -18,30 +20,31 @@
 
     <main>
         <div>Hello twig Reg</div>
-        <form>
+        <form method="post" id="form_reg" action="">
             <div>
                 <label for="login">
                     <span>Please enter login:</span>
                     <input type="text" id="login" name="login" required minlength="6">
-{#                    <span class="error" aria-live="polite"></span>#}
+                    <span class="error" aria-live="polite"></span>
                 </label>
             </div>
             <div>
                 <label for="password">
                     <span>Please enter password:</span>
-                    <input type="text" id="password" name="password" required minlength="6">
+                    <input type="text" id="pass" name="pass" required minlength="6">
                 </label>
             </div>
             <div>
                 <label for="password_confirm">
                     <span>Please confirm password:</span>
-                    <input type="text" id="password_confirm" name="password_confirm" required minlength="6">
+                    <input type="text" id="pass_confirm" name="pass_confirm" required minlength="6">
                 </label>
             </div>
             <div>
                 <label for="mail">
                     <span>Please enter an email address:</span>
                     <input type="email" id="mail" name="mail" required>
+                    <span class="error" aria-live="polite"></span>
                 </label>
             </div>
             <div>
@@ -50,8 +53,10 @@
                     <input type="text" id="name" name="name" required minlength="2">
                 </label>
             </div>
-            <button>Submit</button>
+            <input type="button" id="btn" value="Отправить" />
         </form>
+
+        <div id="result_form"></div>
 
     </main>
 
@@ -59,4 +64,8 @@
 {#        {% include 'footer.twig' %}#}
     </footer>
 </body>
+{% block javascripts %}
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+    <script src="/main.js"></script>
+{% endblock %}
 </html>
