@@ -3,7 +3,7 @@
 $(document).ready(function () {
     $("#btn").click(
         function () {
-            alert('Нажата submit-кнопка');
+            console.log('Нажата submit-кнопка');
             sendAjaxForm('result_form', 'form_reg', '/RegistrationPost');
             return false;
         }

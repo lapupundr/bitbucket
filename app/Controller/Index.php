@@ -2,24 +2,23 @@
 
 declare(strict_types=1);
 
-namespace Auth;
+namespace Auth\Controller;
 
 use Twig\Environment;
 use Twig\Loader\FilesystemLoader;
 
-class Registration implements ControllerInterface
+class Index implements PageResultInterface
 {
     /**
      * @inheritDoc
      */
     public function execute(): void
     {
-        echo('Registration');
+        echo('index');
         $loader = new FilesystemLoader('templates');
         $twig = new Environment(
             $loader
         );
-        echo $twig->render('mainReg.twig');
-
+        echo $twig->render('mainIndex.twig');
     }
 }

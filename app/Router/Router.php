@@ -2,19 +2,19 @@
 
 declare(strict_types=1);
 
-namespace Auth;
+namespace Auth\Router;
 
 class Router implements RouterInterface
 {
     /**
      * @inheritDoc
      */
-    public function math(): void
+    public function match(): void
     {
         $requestUri = $_SERVER['REQUEST_URI'];
         $className = str_replace('/', '', $requestUri);
         $className = ucfirst($className);
-        $className = sprintf('\Auth\%s', (strlen($className) === 0) ? 'Index' : $className);
+        $className = sprintf('\Auth\Controller\%s', (strlen($className) === 0) ? 'Index' : $className);
         $controller = new $className();
         $controller->execute();
     }

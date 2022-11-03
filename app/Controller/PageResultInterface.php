@@ -2,9 +2,9 @@
 
 declare(strict_types=1);
 
-namespace Auth;
+namespace Auth\Controller;
 
-interface ControllerInterface
+interface PageResultInterface
 {
     /**
      * This is a basic controller which render all the pages on the website.

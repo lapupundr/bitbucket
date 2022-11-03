@@ -1,10 +1,9 @@
 <?php
 
-namespace Auth;
+namespace Auth\Controller;
 
-class RegistrationPost implements ControllerInterface
+class RegistrationPost implements JsonResultInterface
 {
-
     /**
      * @inheritDoc
      */
@@ -22,6 +21,7 @@ class RegistrationPost implements ControllerInterface
 
             $result = json_encode($result);
             echo $result;
+//            return $result;
         }
     }
 }

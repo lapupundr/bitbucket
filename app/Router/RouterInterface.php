@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Auth;
+namespace Auth\Router;
 
 interface RouterInterface
 {
@@ -12,6 +12,6 @@ interface RouterInterface
      *
      * @return void
      */
-    public function math(): void;
+    public function match(): void;
 
 }
