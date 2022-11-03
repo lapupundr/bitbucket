@@ -2,14 +2,14 @@
 
 namespace Auth\Controller;
 
-class RegistrationPost implements JsonResultInterface
+class RegistrationPost implements ControllerInterface
 {
     /**
      * @inheritDoc
      */
     public function execute(): void
     {
-        if ($_SERVER['HTTP_X_REQUESTED_WITH'] === 'XMLHttpRequest') {
+        if (isset($_SERVER['HTTP_X_REQUESTED_WITH']) && $_SERVER['HTTP_X_REQUESTED_WITH'] === 'XMLHttpRequest') {
 
             if (isset($_POST["login"]) && isset($_POST["pass"])) {
 
@@ -22,11 +22,11 @@ class RegistrationPost implements JsonResultInterface
                 );
 
                 $result = json_encode($result);
+                header('Content-Type: application/json');
                 echo $result;
-//            return $result;
             }
         } else {
-            echo ('Denied');
+            header("Location: /");
         }
     }
 }

@@ -7,7 +7,7 @@ namespace Auth\Controller;
 use Twig\Environment;
 use Twig\Loader\FilesystemLoader;
 
-class Index implements PageResultInterface
+class Index implements ControllerInterface
 {
     /**
      * @inheritDoc

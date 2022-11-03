@@ -4,14 +4,13 @@ declare(strict_types=1);
 
 namespace Auth\Controller;
 
-interface JsonResultInterface
+interface ControllerInterface
 {
     /**
-     * This controller return json
+     * This is a basic controller which render all the pages on the website.
      *
      * @return void
      */
-
     public function execute(): void;
 
 }

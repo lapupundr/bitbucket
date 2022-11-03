@@ -7,7 +7,7 @@ namespace Auth\Controller;
 use Twig\Environment;
 use Twig\Loader\FilesystemLoader;
 
-class Authorization implements PageResultInterface
+class Authorization implements ControllerInterface
 {
     /**
      * @inheritDoc
