@@ -18,7 +18,6 @@ class Registration implements ControllerInterface
      */
     public function execute(): void
     {
-        echo('Registration');
         $loader = new FilesystemLoader('templates');
         $twig = new Environment(
             $loader
