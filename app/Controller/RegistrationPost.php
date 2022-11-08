@@ -21,7 +21,6 @@ class RegistrationPost implements ControllerInterface
             $userArr = new ReadData();
             $userArr = $userArr->execute('app/db/user.json');
             if (isset($userArr[$userId])) {
-                $_SESSION['userName'] = $userArr[$userId]['name'];
                 $result = json_encode($userArr[$userId]);
             } else {
                 $result = [
@@ -32,15 +31,13 @@ class RegistrationPost implements ControllerInterface
                     'name'         => $_POST['name'],
                 ];
                 $userArr[$userId] = $result;
-                $_SESSION['userName'] = $userArr[$userId]['name'];
-
                 $userJson = json_encode($userArr);
                 $updateData = new UpdateData();
                 $updateData->execute('app/db/user.json', $userJson);
-
                 $result = json_encode($result);
                 header('Content-Type: application/json');
             }
+            $_SESSION['userName'] = $userArr[$userId]['name'];
             echo $result;
         } else {
             header("Location: /");

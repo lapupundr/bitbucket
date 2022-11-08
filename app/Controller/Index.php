@@ -19,6 +19,10 @@ class Index implements ControllerInterface
             $loader
         );
         $template = $twig->load('main.twig');
-        echo $template->render(['template' => 'mainIndex.twig']);
+        if (isset($_SESSION['userName'])) {
+            echo $template->render(['template' => 'mainActiveUser.twig', 'name' => $_SESSION['userName']]);
+        } else {
+            echo $template->render(['template' => 'mainIndex.twig']);
+        }
     }
 }
