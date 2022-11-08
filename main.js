@@ -1,10 +1,20 @@
 // "use strict";
 
 $(document).ready(function () {
-    $("#btn").click(
+    $("#btn_reg").click(
         function () {
             console.log('Нажата submit-кнопка');
             sendAjaxForm('result_form', 'form_reg', '/RegistrationPost');
+            return false;
+        }
+    );
+});
+
+$(document).ready(function () {
+    $("#btn_auth").click(
+        function () {
+            console.log('Нажата submit-кнопка');
+            sendAjaxForm('result_form', 'form_reg', '/AuthorizationPost');
             return false;
         }
     );

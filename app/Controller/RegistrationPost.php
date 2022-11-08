@@ -35,8 +35,8 @@ class RegistrationPost implements ControllerInterface
                 $updateData = new UpdateData();
                 $updateData->execute('app/db/user.json', $userJson);
                 $result = json_encode($result);
-                header('Content-Type: application/json');
             }
+            header('Content-Type: application/json');
             $_SESSION['userName'] = $userArr[$userId]['name'];
             echo $result;
         } else {
