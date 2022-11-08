@@ -22,6 +22,7 @@ class Registration implements ControllerInterface
         $twig = new Environment(
             $loader
         );
-        echo $twig->render('mainReg.twig');
+        $template = $twig->load('main.twig');
+        echo $template->render(['template' => 'mainReg.twig']);
     }
 }

@@ -14,11 +14,11 @@ class Index implements ControllerInterface
      */
     public function execute(): void
     {
-        echo('index');
         $loader = new FilesystemLoader('templates');
         $twig = new Environment(
             $loader
         );
-        echo $twig->render('mainIndex.twig');
+        $template = $twig->load('main.twig');
+        echo $template->render(['template' => 'mainIndex.twig']);
     }
 }

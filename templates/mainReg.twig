@@ -1,72 +1,40 @@
-<!doctype html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport"
-          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    {% block stylesheets %}
-        <link rel="stylesheet" href="/style.css">
-    {% endblock %}
+<div>Hello twig Reg</div>
+<form method="post" id="form_reg" action="">
+    <div>
+        <label for="login">
+            <span>Please enter login:</span>
+            <input type="text" id="login" name="login" required minlength="6">
+            <span class="error" aria-live="polite"></span>
+        </label>
+    </div>
+    <div>
+        <label for="password">
+            <span>Please enter password:</span>
+            <input type="text" id="pass" name="pass" required minlength="6">
+        </label>
+    </div>
+    <div>
+        <label for="password_confirm">
+            <span>Please confirm password:</span>
+            <input type="text" id="pass_confirm" name="pass_confirm" required minlength="6">
+        </label>
+    </div>
+    <div>
+        <label for="mail">
+            <span>Please enter an email address:</span>
+            <input type="email" id="mail" name="mail" required>
+            <span class="error" aria-live="polite"></span>
+        </label>
+    </div>
+    <div>
+        <label for="name">
+            <span>Please enter name:</span>
+            <input type="text" id="name" name="name" required minlength="2">
+        </label>
+    </div>
+    {#            <input type="button" id="btn" value="Отправить" /> #}
+    <button id="btn">Send</button>
+</form>
 
+<div id="result_form"></div>
 
-    <title>Registration</title>
-</head>
-<body>
-    <header>
-        <h1>Registration</h1>
-{#        {% include 'header.twig' %}#}
-    </header>
-
-    <main>
-        <div>Hello twig Reg</div>
-        <form method="post" id="form_reg" action="">
-            <div>
-                <label for="login">
-                    <span>Please enter login:</span>
-                    <input type="text" id="login" name="login" required minlength="6">
-                    <span class="error" aria-live="polite"></span>
-                </label>
-            </div>
-            <div>
-                <label for="password">
-                    <span>Please enter password:</span>
-                    <input type="text" id="pass" name="pass" required minlength="6">
-                </label>
-            </div>
-            <div>
-                <label for="password_confirm">
-                    <span>Please confirm password:</span>
-                    <input type="text" id="pass_confirm" name="pass_confirm" required minlength="6">
-                </label>
-            </div>
-            <div>
-                <label for="mail">
-                    <span>Please enter an email address:</span>
-                    <input type="email" id="mail" name="mail" required>
-                    <span class="error" aria-live="polite"></span>
-                </label>
-            </div>
-            <div>
-                <label for="name">
-                    <span>Please enter name:</span>
-                    <input type="text" id="name" name="name" required minlength="2">
-                </label>
-            </div>
-{#            <input type="button" id="btn" value="Отправить" />#}
-            <button id="btn">Send</button>
-        </form>
-
-        <div id="result_form"></div>
-
-    </main>
-
-    <footer>
-{#        {% include 'footer.twig' %}#}
-    </footer>
-</body>
-{% block javascripts %}
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
-    <script src="/main.js"></script>
-{% endblock %}
-</html>

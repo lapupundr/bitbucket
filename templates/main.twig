@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    {% block stylesheets %}
+        <link rel="stylesheet" href="/style.css">
+    {% endblock %}
+
+
+    <title>Registration</title>
+</head>
+<body>
+<header>
+    <h1>Hello</h1>
+    {#        {% include 'header.twig' %} #}
+</header>
+
+<main>
+    {% include template %}
+    <div>{{ template }}</div>
+
+    <div id="result_form"></div>
+
+</main>
+
+<footer>
+    {#        {% include 'footer.twig' %} #}
+</footer>
+</body>
+{% block javascripts %}
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+    <script src="/main.js"></script>
+{% endblock %}
+</html>
