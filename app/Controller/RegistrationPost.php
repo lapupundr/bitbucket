@@ -38,7 +38,7 @@ class RegistrationPost implements ControllerInterface
             header('Content-Type: application/json');
             $updateData = new UpdateData();
             $updateData->execute('app/db/user.json', $userArr);
-            $_SESSION['userName'] = $userArr[$userId]['name'];
+//            $_SESSION['userName'] = $userArr[$userId]['name'];
             echo $result;
         } else {
             header("Location: /");

@@ -27,9 +27,11 @@ class AuthorizationPost implements ControllerInterface
                 if (in_array($_POST['login'], $value)) {
                     $userId = $key;
                     $userIdNew = $_COOKIE['PHPSESSID'];
-                    $userArr[$userIdNew] = $userArr[$userId];
-                    unset($userArr[$userId]);
-                    $_SESSION['userName'] = $userArr[$userIdNew]['name'];
+                    if ($userId != $userIdNew){
+                        $userArr[$userIdNew] = $userArr[$userId];
+                        unset($userArr[$userId]);
+                    }
+//                    $_SESSION['userName'] = $userArr[$userIdNew]['name'];
                     $updateData = new UpdateData();
                     $updateData->execute('app/db/user.json', $userArr);
                     $result = json_encode($value);

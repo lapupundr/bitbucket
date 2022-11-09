@@ -11,6 +11,10 @@ class Router implements RouterInterface
      */
     public function match(): void
     {
+        if ($_SERVER['REQUEST_URI'] === '/exit'){
+            unset($_SESSION['userName']);
+            $_SERVER['REQUEST_URI'] = 'index';
+        }
         if (isset($_SESSION['userName'])){
             $_SERVER['REQUEST_URI'] = 'index';
         }
