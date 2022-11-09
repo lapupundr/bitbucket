@@ -10,8 +10,8 @@ interface UpdateDataInterface
      * This class open file or create an open. Add new user at the end of file.
      *
      * @param string $path
-     * @param string $data
+     * @param array $data
      * @return void
      */
-    public function execute(string $path, string $data): void;
+    public function execute(string $path, array $data): void;
 }
