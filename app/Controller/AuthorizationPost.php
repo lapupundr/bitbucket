@@ -18,14 +18,23 @@ class AuthorizationPost implements ControllerInterface
         ) {
             $userArr = new ReadData();
             $userArr = $userArr->execute('app/db/user.json');
+            if (empty($userArr)){
+                $result = '{"name":"you need registration", "hidden":"false"}';
+            }
+
+
 
             foreach ($userArr as $key => $value) {
             if (in_array($_POST['login'], $value)){
                 $userId = $key;
+                $userIdNew = $_COOKIE['PHPSESSID'];
+                $userArr[$userIdNew] = $userArr[$userId];
+                unset($userArr[$userId]);
+                $_SESSION['userName'] = $userArr[$userIdNew]['name'];
                 $result = json_encode($value);
                 break;
             } else {
-                $result = '{"name":"You need registration"}';
+                $result = '{"name":"you need registration", "hidden":"false"}';
             }
             }
                 echo $result;

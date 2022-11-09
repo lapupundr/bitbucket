@@ -29,8 +29,11 @@ function sendAjaxForm(result_form, form_reg, url) {
         success: function (response) {
             result = $.parseJSON(response);
             console.log(result);
-            $('#result_form').html('Successful.<br>Hello ' + result.name);
+            $('#result_form').html('Hello, ' + result.name);
             document.getElementById('form_reg').hidden = true;
+            if (result.hidden === 'false') {
+                document.getElementById('btn_forward').hidden = false;
+            }
         },
         error: function (response) {
             $('#result_form').html('Ошибка. Данные не отправлены.');
