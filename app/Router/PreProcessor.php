@@ -12,7 +12,7 @@ class PreProcessor implements PreProcessorInterface
     public function execute(): void
     {
         if (isset($_SESSION['userName']) && $_SERVER['REQUEST_URI'] != '/logout') {
-            $_SERVER['REQUEST_URI'] = 'index';
+            $_SERVER['REQUEST_URI'] = '/dashboard';
         }
     }
 }

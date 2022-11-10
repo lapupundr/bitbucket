@@ -7,7 +7,7 @@ namespace Auth\Controller;
 use Twig\Environment;
 use Twig\Loader\FilesystemLoader;
 
-class Index implements ControllerInterface
+class Dashboard implements ControllerInterface
 {
     /**
      * @inheritDoc
@@ -17,6 +17,6 @@ class Index implements ControllerInterface
         $loader = new FilesystemLoader('templates');
         $twig = new Environment($loader);
         $template = $twig->load('main.twig');
-        echo $template->render(['template' => 'mainIndex.twig']);
+        echo $template->render(['template' => 'mainActiveUser.twig', 'name' => $_SESSION['userName']]);
     }
 }
