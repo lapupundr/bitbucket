@@ -11,11 +11,11 @@ class UpdateData implements UpdateDataInterface
      */
     public function execute(string $path, array $data): void
     {
-        unlink($path);
+//        unlink($path);
         $userId = $_SESSION['userId'];
         $_SESSION['userName'] = $data[$userId]['name'];
         $data = json_encode($data);
-        $file = fopen($path, 'a');
+        $file = fopen($path, 'w+');
         fwrite($file, $data);
         fclose($file);
     }

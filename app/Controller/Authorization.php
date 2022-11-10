@@ -15,9 +15,7 @@ class Authorization implements ControllerInterface
     public function execute(): void
     {
         $loader = new FilesystemLoader('templates');
-        $twig = new Environment(
-            $loader
-        );
+        $twig = new Environment($loader);
         $template = $twig->load('main.twig');
         echo $template->render(['template' => 'mainAuth.twig']);
     }

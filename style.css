@@ -15,7 +15,6 @@ input:focus:invalid {
     outline: none;
 }
 
-/* Это стили для кастомных сообщений об ошибке */
 .error {
     width  : 100%;
     padding: 0;
