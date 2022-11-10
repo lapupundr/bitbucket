@@ -24,6 +24,5 @@ class Index implements ControllerInterface
         } else {
             echo $template->render(['template' => 'mainIndex.twig']);
         }
-//            echo $template->render(['template' => 'mainIndex.twig']);
     }
 }

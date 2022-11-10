@@ -12,5 +12,4 @@ interface ControllerInterface
      * @return void
      */
     public function execute(): void;
-
 }
