@@ -11,9 +11,6 @@ class UpdateData implements UpdateDataInterface
      */
     public function execute(string $path, array $data): void
     {
-//        unlink($path);
-        $userId = $_SESSION['userId'];
-        $_SESSION['userName'] = $data[$userId]['name'];
         $data = json_encode($data);
         $file = fopen($path, 'w+');
         fwrite($file, $data);
