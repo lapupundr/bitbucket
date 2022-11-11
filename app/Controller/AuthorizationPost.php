@@ -1,9 +1,10 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Auth\Controller;
 
-use Auth\Model\ReadData;
-use Auth\Model\UpdateData;
+use Auth\Model\AuthorizationModel;
 
 class AuthorizationPost implements ControllerInterface
 {
@@ -17,29 +18,11 @@ class AuthorizationPost implements ControllerInterface
             && isset($_POST["login"])
             && isset($_POST["pass"])
         ) {
-            $userArr = new ReadData();
-            $userArr = $userArr->execute('app/db/user.json');
-            if (empty($userArr)) {
-                $result = '{"name":"you need registration", "hidden":"false"}';
-            }
-
-            foreach ($userArr as $key => $value) {
-                if (in_array($_POST['login'], $value)) {
-                    $userId = $key;
-                    $userIdNew = $_COOKIE['PHPSESSID'];
-                    if ($userId != $userIdNew) {
-                        $userArr[$userIdNew] = $userArr[$userId];
-                        unset($userArr[$userId]);
-                    }
-                    $updateData = new UpdateData();
-                    $updateData->execute('app/db/user.json', $userArr);
-                    $result = json_encode($value);
-                    break;
-                } else {
-                    $result = '{"name":"you need registration", "hidden":"false"}';
-                }
-            }
+            $result = new AuthorizationModel();
+            $result = $result->execute();
             echo $result;
+        } else {
+            header("Location: /");
         }
     }
 }
