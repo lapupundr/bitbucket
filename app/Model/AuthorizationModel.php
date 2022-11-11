@@ -19,10 +19,9 @@ class AuthorizationModel implements ModelInterface
         foreach ($userArr as $key => $value) {
             if (in_array($_POST['login'], $value)) {
                 $userId = $key;
-                $userIdNew = $_COOKIE['PHPSESSID'];
-                if ($userId != $userIdNew) {
-                    $userArr[$userIdNew] = $userArr[$userId];
-                    unset($userArr[$userId]);
+                if ($userId != $_COOKIE['PHPSESSID']){
+                    $_COOKIE['PHPSESSID'] = $userId;
+                    $_SESSION['userId'] = $userId;
                 }
                 header('Content-Type: application/json');
                 $_SESSION['userName'] = $userArr[$userId]['name'];
