@@ -17,7 +17,7 @@ $preProcessor = new \Auth\Router\PreProcessor();
 $preProcessor->execute();
 
 $router = new \Auth\Router\Router();
-    $router->match();
+$router->match();
 
 Connection::writeFile();
 
