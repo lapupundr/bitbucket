@@ -6,8 +6,14 @@ namespace Auth\Model;
 
 class Connection implements ConnectionInterface
 {
+    /**
+     * @var array
+     */
     private static array $databaseArray = [];
 
+    /**
+     * @inheritDoc
+     */
     public static function readFile(): void
     {
         $jsonData = file_get_contents(self::FILE_PATH);
@@ -15,12 +21,11 @@ class Connection implements ConnectionInterface
             return;
         }
         self::$databaseArray = json_decode($jsonData, true);
-        //        if ($error = json_last_error_msg()) {
-        //            throw new FileFormatException('The data is wrong' . $error);
-        //        }
-
     }
 
+    /**
+     * @inheritDoc
+     */
     public static function writeFile(): void
     {
         $fileHandler = fopen(self::FILE_PATH, 'w+');
@@ -28,12 +33,19 @@ class Connection implements ConnectionInterface
         fclose($fileHandler);
     }
 
-    public static function readOperation()
+    /**
+     * @inheritDoc
+     */
+    public static function readOperation(): array
     {
         return self::$databaseArray;
     }
 
-    public static function updateOperation($value){
+    /**
+     * @inheritDoc
+     */
+    public static function updateOperation(array $value): array
+    {
         return self::$databaseArray = $value;
     }
 }
