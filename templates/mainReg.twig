@@ -10,7 +10,7 @@
     <div>
         <label for="password">
             <span>Please enter password:</span>
-            <input type="text" placeholder="6 symbols" id="pass" name="pass" required minlength="6">
+            <input type="text" placeholder="6 symbols" id="password" name="password" required pattern="(?=.*[0-9])(?=.*[a-zA-Z])[0-9a-zA-Z]{6,}">
             <span class="error" aria-live="polite"></span>
         </label>
     </div>
@@ -39,4 +39,9 @@
 </form>
 
 <div id="result_form"></div>
+
+{% block javascripts %}
+{#    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>#}
+    <script src="/mainReg.js"></script>
+{% endblock %}
 

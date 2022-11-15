@@ -20,7 +20,7 @@ class RegistrationModel implements ModelInterface
         } else {
             $result = [
                 'login'        => $_POST["login"],
-                'pass'         => $_POST["pass"],
+                'pass'         => $_POST["password"],
                 'pass_confirm' => $_POST['pass_confirm'],
                 'mail'         => $_POST['mail'],
                 'name'         => $_POST['name'],
