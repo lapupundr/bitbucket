@@ -3,20 +3,22 @@
     <div>
         <label for="login">
             <span>Please enter login:</span>
-            <input type="text" id="login" name="login" required minlength="6">
+            <input type="text" placeholder="6 symbols" id="login" name="login" required minlength="6" >
             <span class="error" aria-live="polite"></span>
         </label>
     </div>
     <div>
         <label for="password">
             <span>Please enter password:</span>
-            <input type="text" id="pass" name="pass" required minlength="6">
+            <input type="text" placeholder="6 symbols" id="pass" name="pass" required minlength="6">
+            <span class="error" aria-live="polite"></span>
         </label>
     </div>
     <div>
         <label for="password_confirm">
             <span>Please confirm password:</span>
             <input type="text" id="pass_confirm" name="pass_confirm" required minlength="6">
+            <span class="error" aria-live="polite"></span>
         </label>
     </div>
     <div>
@@ -29,7 +31,8 @@
     <div>
         <label for="name">
             <span>Please enter name:</span>
-            <input type="text" id="name" name="name" required minlength="2">
+            <input type="text" id="name" name="name" required pattern="[a-zA-Z]{2,}">
+            <span class="error" aria-live="polite"></span>
         </label>
     </div>
     <button id="btn_reg">Send</button>
