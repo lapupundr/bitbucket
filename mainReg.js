@@ -1,4 +1,4 @@
-// "use strict";
+"use strict";
 const form = document.getElementsByTagName('form')[0];
 const login = document.getElementById('login');
 const password = document.getElementById('password');
@@ -41,7 +41,7 @@ password.addEventListener('input', function (event) {
 });
 
 passConfirm.addEventListener('input', function (event) {
-    if (passConfirm.validity.valid) {
+    if (passConfirm.value === password.value) {
         passConfirmError.textContent = '';
         passConfirmError.className = 'error';
         errorData = false;
@@ -94,7 +94,7 @@ function showPassConfirmError() {
     errorData = true;
     if (passConfirm.validity.valueMissing) {
         passConfirmError.textContent = 'You need to confirm a password.';
-    } else if (password.value === passConfirm.value) {
+    } else if (password.value !== passConfirm.value) {
         console.log(password.value, passConfirm.value);
         passConfirmError.textContent = `Passwords do not match`;
     }
