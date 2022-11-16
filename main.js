@@ -1,6 +1,8 @@
 // "use strict";
 
+const btnExit = document.getElementById('btn_exit');
 $('#btn_reg').prop('disabled', true);
+
 
 $(document).ready(function () {
     $("#btn_reg").click(
@@ -31,11 +33,44 @@ function sendAjaxForm(result_form, form_reg, url) {
         success: function (response) {
             result = $.parseJSON(response);
             console.log(result);
-            $('#result_form').html('Hello, ' + result.name);
-            document.getElementById('form_reg').hidden = true;
-            if (result.hidden === 'false') {
-                document.getElementById('btn_forward').hidden = false;
+            if (result.error === 'errorRegistration') {
+                // result.forEach(function (value, index) {
+                //     let nameError = `${index}Error`;
+                //     nameError.textContent = value;
+                // })
+                if (result.login) {
+                    loginError.textContent = result.login;
+                    loginError.className = 'error active';
+                }
+                if (result.password) {
+                    passwordError.textContent = result.password;
+                    passwordError.className = 'error active';
+                }
+                if (result.pass_confirm) {
+                    passConfirmError.textContent = result.pass_confirm;
+                    passConfirmError.className = 'error active';
+                }
+                if (result.mail) {
+                    emailError.textContent = result.mail;
+                    emailError.className = 'error active';
+                }
+                if (result.name) {
+                    nameError.textContent = result.name;
+                    nameError.className = 'error active';
+                }
+                $('#btn_exit').prop('disabled', false);
+                btnExit.hidden = true;
+
+
+            } else {
+                $('#result_form').html('Hello, ' + result.name);
+                document.getElementById('form_reg').hidden = true;
+                btnExit.hidden = false;
+                if (result.hidden === 'false') {
+                    document.getElementById('btn_forward').hidden = false;
+                }
             }
+
         },
         error: function (response) {
             $('#result_form').html('Ошибка. Данные не отправлены.');

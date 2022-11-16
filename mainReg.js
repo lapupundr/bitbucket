@@ -6,7 +6,7 @@ const passConfirm = document.getElementById('pass_confirm');
 const email = document.getElementById('mail');
 const name = document.getElementById('name');
 const loginError = document.querySelector('#login + span.error');
-const passError = document.querySelector('#password + span.error');
+const passwordError = document.querySelector('#password + span.error');
 const passConfirmError = document.querySelector('#pass_confirm + span.error');
 const emailError = document.querySelector('#mail + span.error');
 const nameError = document.querySelector('#name + span.error');
@@ -32,8 +32,8 @@ login.addEventListener('input', function (event) {
 
 password.addEventListener('input', function (event) {
     if (password.validity.valid) {
-        passError.textContent = '';
-        passError.className = 'error';
+        passwordError.textContent = '';
+        passwordError.className = 'error';
         errorData = false;
     } else {
         showPassError();
@@ -83,11 +83,11 @@ function showError() {
 function showPassError() {
     errorData = true;
     if (password.validity.valueMissing) {
-        passError.textContent = 'You need to enter a password.';
+        passwordError.textContent = 'You need to enter a password.';
     } else if (password.validity.patternMismatch) {
-        passError.textContent = `Password should consist of numbers, letters and 6 symbols length`;
+        passwordError.textContent = `Password should consist of numbers, letters and 6 symbols length`;
     }
-    passError.className = 'error active';
+    passwordError.className = 'error active';
 }
 
 function showPassConfirmError() {
