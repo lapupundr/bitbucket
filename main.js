@@ -34,10 +34,7 @@ function sendAjaxForm(result_form, form_reg, url) {
             result = $.parseJSON(response);
             console.log(result);
             if (result.error === 'errorRegistration') {
-                // result.forEach(function (value, index) {
-                //     let nameError = `${index}Error`;
-                //     nameError.textContent = value;
-                // })
+
                 if (result.login) {
                     loginError.textContent = result.login;
                     loginError.className = 'error active';
@@ -58,19 +55,16 @@ function sendAjaxForm(result_form, form_reg, url) {
                     nameError.textContent = result.name;
                     nameError.className = 'error active';
                 }
-                $('#btn_exit').prop('disabled', false);
                 btnExit.hidden = true;
-
-
             } else {
                 $('#result_form').html('Hello, ' + result.name);
                 document.getElementById('form_reg').hidden = true;
                 btnExit.hidden = false;
                 if (result.hidden === 'false') {
                     document.getElementById('btn_forward').hidden = false;
+                    btnExit.hidden = true;
                 }
             }
-
         },
         error: function (response) {
             $('#result_form').html('Ошибка. Данные не отправлены.');
