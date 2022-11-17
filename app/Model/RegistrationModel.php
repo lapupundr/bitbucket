@@ -12,8 +12,6 @@ class RegistrationModel implements ModelInterface
     public function execute(): string
     {
         $userId = $_SESSION['userId'];
-//        $userArr = new ReadData();
-//        $userArr = $userArr->execute('app/db/user.json');
         $userArr = Connection::readOperation();
         if (isset($userArr[$userId]) && $userArr[$userId]['login'] === $_POST['login']) {
             $result = json_encode($userArr[$userId]);
@@ -35,8 +33,6 @@ class RegistrationModel implements ModelInterface
             $result = json_encode($resultCheck);
         } else {
             $_SESSION['userName'] = $userArr[$userId]['name'];
-            //        $updateData = new UpdateData();
-            //        $updateData->execute('app/db/user.json', $userArr);
             Connection::updateOperation($userArr);
         }
         return $result;

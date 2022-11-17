@@ -18,6 +18,14 @@ class Validate implements ValidateInterface
                 $result['error'] = 'errorRegistration';
             }
         }
+//        if (!filter_var($userArr['login'], FILTER_VALIDATE_REGEXP, array("options" => array("regexp"=>"/^M(.*)/"))) {
+//
+//        }
+        if (!filter_var($userArr['mail'], FILTER_VALIDATE_EMAIL)) {
+            $result['mail'] = 'You should enter an e-mail address.';
+
+        }
+
         return $result;
     }
 }
