@@ -9,19 +9,17 @@ class Validate implements ValidateInterface
     /**
      * @inheritDoc
      */
-    public function execute(array $userArr, string $error): array
+    public function execute(array $userArr): array
     {
         $result = [];
         foreach ($userArr as $key => $value) {
             if (empty($value)) {
                 $result[$key] = 'php error: The field ' . $key . ' cannot be empty.';
-                $result['error'] = $error;
+                $result['error'] = 'error';
             }
         }
 
-        if ($error === 'errorRegistration') {
-            $result = $this->errorRegistration($userArr, $result);
-        }
+        $result = $this->errorRegistration($userArr, $result);
 
         return $result;
     }

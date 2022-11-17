@@ -33,7 +33,7 @@ function sendAjaxForm(result_form, form_reg, url) {
         success: function (response) {
             let result = $.parseJSON(response);
             console.log(result);
-            if (result.error === 'errorRegistration') {
+            if (result.error === 'error') {
 
                 if (result.login) {
                     loginError.textContent = result.login;

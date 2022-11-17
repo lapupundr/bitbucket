@@ -18,11 +18,12 @@ class RegistrationModel implements ModelInterface
         } else {
             $result = [
                 'login'        => $_POST["login"],
-                'password'         => $_POST["password"],
+                'password'     => $_POST["password"],
                 'pass_confirm' => $_POST['pass_confirm'],
                 'mail'         => $_POST['mail'],
                 'name'         => $_POST['name'],
             ];
+
             $resultCheck = new Validate();
             $resultCheck = $resultCheck->execute($result, 'errorRegistration');
             $userArr[$userId] = $result;

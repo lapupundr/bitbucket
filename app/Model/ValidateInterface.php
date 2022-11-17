@@ -12,5 +12,5 @@ interface ValidateInterface
      * @param string[] $userArr
      * @return string[]
      */
-    public function execute(array $userArr, string $error): array;
+    public function execute(array $userArr): array;
 }
