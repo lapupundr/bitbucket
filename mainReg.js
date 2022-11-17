@@ -1,4 +1,4 @@
-"use strict";
+// "use strict";
 const form = document.getElementsByTagName('form')[0];
 const login = document.getElementById('login');
 const password = document.getElementById('password');

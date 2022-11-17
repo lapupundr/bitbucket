@@ -31,7 +31,7 @@ function sendAjaxForm(result_form, form_reg, url) {
         dataType: "html",
         data: $("#" + form_reg).serialize(),
         success: function (response) {
-            result = $.parseJSON(response);
+            let result = $.parseJSON(response);
             console.log(result);
             if (result.error === 'errorRegistration') {
 

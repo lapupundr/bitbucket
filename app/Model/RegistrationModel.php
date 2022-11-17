@@ -24,7 +24,7 @@ class RegistrationModel implements ModelInterface
                 'name'         => $_POST['name'],
             ];
             $resultCheck = new Validate();
-            $resultCheck = $resultCheck->execute($result);
+            $resultCheck = $resultCheck->execute($result, 'errorRegistration');
             $userArr[$userId] = $result;
             $result = json_encode($result);
         }
