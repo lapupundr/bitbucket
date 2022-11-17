@@ -2,6 +2,7 @@
 
 const btnExit = document.getElementById('btn_exit');
 $('#btn_reg').prop('disabled', true);
+$('#btn_auth').prop('disabled', true);
 
 
 $(document).ready(function () {

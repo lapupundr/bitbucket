@@ -11,8 +11,6 @@ class AuthorizationModel implements ModelInterface
      */
     public function execute(): string
     {
-//        $userArr = new ReadData();
-//        $userArr = $userArr->execute('app/db/user.json');
         $userArr = Connection::readOperation();
         if (empty($userArr)) {
             $result = '{"name":"you need registration", "hidden":"false"}';
@@ -26,8 +24,6 @@ class AuthorizationModel implements ModelInterface
                 }
                 header('Content-Type: application/json');
                 $_SESSION['userName'] = $userArr[$userId]['name'];
-//                $updateData = new UpdateData();
-//                $updateData->execute('app/db/user.json', $userArr);
                 Connection::updateOperation($userArr);
                 $result = json_encode($value);
                 break;
