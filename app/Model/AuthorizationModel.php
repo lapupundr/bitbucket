@@ -28,7 +28,7 @@ class AuthorizationModel implements ModelInterface
                 $result = json_encode($value);
                 break;
             } else {
-                $result = '{"name":"you need registration", "hidden":"false"}';
+                $result = '{"name":"login or password is incorrect", "hidden":"false"}';
             }
         }
         return $result;

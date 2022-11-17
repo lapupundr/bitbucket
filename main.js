@@ -1,5 +1,4 @@
 // "use strict";
-
 const btnExit = document.getElementById('btn_exit');
 $('#btn_reg').prop('disabled', true);
 $('#btn_auth').prop('disabled', true);
@@ -32,7 +31,7 @@ function sendAjaxForm(result_form, form_reg, url) {
         dataType: "html",
         data: $("#" + form_reg).serialize(),
         success: function (response) {
-            let result = $.parseJSON(response);
+            result = $.parseJSON(response);
             console.log(result);
             if (result.error === 'error') {
 
