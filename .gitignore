@@ -2,3 +2,4 @@
 templates_c
 vendor
 .DS_Store
+app/db/user.json
