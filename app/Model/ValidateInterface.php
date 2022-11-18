@@ -7,7 +7,7 @@ namespace Auth\Model;
 interface ValidateInterface
 {
     /**
-     * Check data from registration form
+     * Check data from registration form.
      *
      * @param string[] $userArr
      * @return string[]

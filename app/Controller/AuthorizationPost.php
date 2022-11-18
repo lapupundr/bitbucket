@@ -14,7 +14,7 @@ class AuthorizationPost implements ControllerInterface
     public function execute(): void
     {
         if (isset($_SERVER['HTTP_X_REQUESTED_WITH'])
-            && $_SERVER['HTTP_X_REQUESTED_WITH'] === 'XMLHttpRequest'
+            && $_SERVER['HTTP_X_REQUESTED_WITH'] === self::AJAX_REQUEST_FLAG
             && isset($_POST["login"])
             && isset($_POST["password"])
         ) {

@@ -18,6 +18,10 @@ class Registration implements ControllerInterface
      */
     public function execute(): void
     {
+        if (isset($_SESSION['userName'])) {
+            header("Location: /dashboard");
+        }
+
         $loader = new FilesystemLoader('templates');
         $twig = new Environment($loader);
         $template = $twig->load('main.twig');

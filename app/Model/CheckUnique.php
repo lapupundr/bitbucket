@@ -13,16 +13,13 @@ class CheckUnique implements CheckUniqueInterface
     {
         $dataArray = Connection::readOperation();
         if (empty($dataArray)) {
-            $result = true;
+            return true;
         }
         foreach ($dataArray as $array) {
             if ($value === $array[$key]) {
-                $result = false;
-                break;
-            } else {
-                $result = true;
+                return false;
             }
         }
-        return $result;
+        return true;
     }
 }

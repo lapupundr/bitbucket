@@ -13,8 +13,6 @@ class Verification implements VerificationInterface
     {
         $encryptPass = new EncryptPassword();
         $encryptPass = $encryptPass->execute($_POST['password']);
-        if ($_POST['login'] === $array['login'] && $encryptPass === $array['password']) {
-            return true;
-        } else return false;
+        return $_POST['login'] === $array['login'] && $encryptPass === $array['password'];
     }
 }

@@ -14,6 +14,10 @@ class Dashboard implements ControllerInterface
      */
     public function execute(): void
     {
+        if (!isset($_SESSION['userName'])) {
+            header("Location: /index");
+        }
+
         $loader = new FilesystemLoader('templates');
         $twig = new Environment($loader);
         $template = $twig->load('main.twig');

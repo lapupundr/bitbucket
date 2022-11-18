@@ -11,7 +11,7 @@ class EncryptPassword implements EncryptPasswordInterface
      */
     public function execute(string $password): string
     {
-        $statickSalt = 'TestSalt';
-        return md5($password . $statickSalt);
+        $staticSalt = 'TestSalt';
+        return md5($password . $staticSalt);
     }
 }

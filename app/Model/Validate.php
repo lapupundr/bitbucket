@@ -35,7 +35,14 @@ class Validate implements ValidateInterface
         return $result;
     }
 
-    public function errorRegistration(array $userArr, array $result): array
+    /**
+     * Check all fields match conditions.
+     *
+     * @param array $userArr
+     * @param array $result
+     * @return array
+     */
+    private function errorRegistration(array $userArr, array $result): array
     {
         if (strlen($userArr['login']) < 6) {
             $result['login'] = 'php error: Login must be longer than 6 characters';
