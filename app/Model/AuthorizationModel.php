@@ -23,6 +23,8 @@ class AuthorizationModel implements ModelInterface
             if ($verificationUser){
                 header('Content-Type: application/json');
                 $_SESSION['userName'] = $value['name'];
+                $_SESSION['userId'] = $key;
+                $_COOKIE['PHPSESSID'] = $key;
 //                Connection::updateOperation($userArr);
                 $result = json_encode($value);
                 break;

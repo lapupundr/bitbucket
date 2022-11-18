@@ -11,7 +11,6 @@ class CheckUnique implements CheckUniqueInterface
      */
     public function execute(string $value, string $key): bool
     {
-        //        $result = true;
         $dataArray = Connection::readOperation();
         if (empty($dataArray)) {
             $result = true;

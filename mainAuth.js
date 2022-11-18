@@ -4,7 +4,7 @@ const login = document.getElementById('login');
 const password = document.getElementById('password');
 const loginError = document.querySelector('#login + span.error');
 const passwordError = document.querySelector('#password + span.error');
-const passConfirmError = document.querySelector('#pass_confirm + span.error');
+// const passConfirmError = document.querySelector('#pass_confirm + span.error');
 let errorData = true;
 
 form.addEventListener('input', function (event) {
@@ -49,7 +49,7 @@ function showPassError() {
     errorData = true;
     if (password.validity.valueMissing) {
         passwordError.textContent = 'You need to enter a password.';
-    } else if (password.validity.patternMismatch) {
+    } else if (password.validity.tooShort) {
         passwordError.textContent = `Password should consist of numbers, letters and 6 symbols length`;
     }
     passwordError.className = 'error active';
