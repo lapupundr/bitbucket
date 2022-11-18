@@ -11,14 +11,17 @@ class CheckUnique implements CheckUniqueInterface
      */
     public function execute(string $value, string $key): bool
     {
-        $result = true;
+        //        $result = true;
         $dataArray = Connection::readOperation();
+        if (empty($dataArray)) {
+            $result = true;
+        }
         foreach ($dataArray as $array) {
             if ($value === $array[$key]) {
-                $result = true;
+                $result = false;
                 break;
             } else {
-                $result =  false;
+                $result = true;
             }
         }
         return $result;

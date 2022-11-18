@@ -7,7 +7,7 @@ namespace Auth\Model;
 interface CheckUniqueInterface
 {
     /**
-     * Compare data with data[key] in the database and return true if exist the same else return false.
+     * Compare data with data[key] in the database and return true if data unique else return false.
      *
      * @param string $value
      * @param string $key
