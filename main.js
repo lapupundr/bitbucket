@@ -62,6 +62,7 @@ function sendAjaxForm(result_form, form_reg, url) {
                 btnExit.hidden = false;
                 if (result.hidden === 'false') {
                     document.getElementById('btn_forward').hidden = false;
+                    document.getElementById('btn_forward_auth').hidden = false;
                     btnExit.hidden = true;
                 }
             }
