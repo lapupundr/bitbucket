@@ -21,6 +21,17 @@ class Validate implements ValidateInterface
 
         $result = $this->errorRegistration($userArr, $result);
 
+        $uniqueLogin = new CheckUnique();
+        $uniqueLogin = $uniqueLogin->execute($userArr['login'], 'login');
+        if ($uniqueLogin) {
+            $result['login'] = 'php error: this user login has already exist';
+        }
+        $uniqueEmail = new CheckUnique();
+        $uniqueEmail = $uniqueEmail->execute($userArr['mail'], 'mail');
+        if ($uniqueEmail) {
+            $result['mail'] = 'php error: this user email has already exist';
+        }
+
         return $result;
     }
 

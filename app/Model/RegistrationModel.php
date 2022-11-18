@@ -25,14 +25,26 @@ class RegistrationModel implements ModelInterface
             ];
 
             $resultCheck = new Validate();
-            $resultCheck = $resultCheck->execute($result, 'errorRegistration');
-            $userArr[$userId] = $result;
-            $result = json_encode($result);
+            $resultCheck = $resultCheck->execute($result);
+//            $pass = $result['password'];
+//            $encryptPass = new EncryptPassword();
+//            $encryptPass = $encryptPass->execute($pass);
+//            $userArr[$userId] = $result;
+//            $result = json_encode($result);
         }
         header('Content-Type: application/json');
         if ($resultCheck) {
+            $resultCheck['error'] = 'error';
             $result = json_encode($resultCheck);
         } else {
+            $pass = $result['password'];
+            $encryptPass = new EncryptPassword();
+            $encryptPass = $encryptPass->execute($pass);
+            $result['password'] = $encryptPass;
+            $result['pass_confirm'] = $encryptPass;
+            $userArr[$userId] = $result;
+            $result = json_encode($result);
+
             $_SESSION['userName'] = $userArr[$userId]['name'];
             Connection::updateOperation($userArr);
         }

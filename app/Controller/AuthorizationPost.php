@@ -13,11 +13,10 @@ class AuthorizationPost implements ControllerInterface
      */
     public function execute(): void
     {
-        if (
-//            isset($_SERVER['HTTP_X_REQUESTED_WITH']) &&
-            $_SERVER['HTTP_X_REQUESTED_WITH'] === 'XMLHttpRequest'
+        if (isset($_SERVER['HTTP_X_REQUESTED_WITH'])
+            && $_SERVER['HTTP_X_REQUESTED_WITH'] === 'XMLHttpRequest'
             && isset($_POST["login"])
-            && isset($_POST["pass"])
+            && isset($_POST["password"])
         ) {
             $result = new AuthorizationModel();
             $result = $result->execute();
