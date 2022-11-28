@@ -74,8 +74,9 @@ function showError() {
     errorData = true;
     if (login.validity.valueMissing) {
         loginError.textContent = 'You need to enter a login.';
-    } else if (login.validity.tooShort) {
-        loginError.textContent = `Login should be at least ${login.minLength} characters; you entered ${login.value.length}.`;
+    } else if (login.validity.patternMismatch) {
+        // loginError.textContent = `Login should be at least ${login.minLength} characters; you entered ${login.value.length}.`;
+        loginError.textContent = `You should enter a login: minimum 6 characters without spaces.`;
     }
     loginError.className = 'error active';
 }

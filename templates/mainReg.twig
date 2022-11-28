@@ -3,28 +3,32 @@
     <div>
         <label for="login">
             <span>Please enter login:</span>
-            <input type="text" placeholder="6 symbols" id="login" name="login" required minlength="6" >
+            <input type="text" placeholder="6 symbols" id="login" name="login" required pattern="[\S]{6,}">
             <span class="error" aria-live="polite"></span>
         </label>
     </div>
     <div>
         <label for="password">
             <span>Please enter password:</span>
-            <input type="text" placeholder="6 symbols" id="password" name="password" required pattern="(?=.*[0-9])(?=.*[a-zA-Z])[0-9a-zA-Z]{6,}">
+            <input type="password" placeholder="6 symbols" id="password" name="password" required pattern="(?=.*[0-9])(?=.*[a-zA-Z])[0-9a-zA-Z]{6,}">
             <span class="error" aria-live="polite"></span>
         </label>
     </div>
     <div>
         <label for="pass_confirm">
             <span>Please confirm password:</span>
-            <input type="text" id="pass_confirm" name="pass_confirm" required>
+            <input type="password" id="pass_confirm" name="pass_confirm" required>
             <span class="error" aria-live="polite"></span>
         </label>
     </div>
     <div>
         <label for="mail">
             <span>Please enter an email address:</span>
-            <input type="email" id="mail" name="mail" required>
+{#            <input type="email" id="mail" name="mail" required>#}
+{#            <input type="email" id="mail" name="mail" required pattern="^[_A-Za-z0-9-\\+]+(\\.[_A-Za-z0-9-]+)*@[A-Za-z0-9-]+(\\.[A-Za-z0-9]+)*(\\.[A-Za-z]{2,})$">#}
+{#            <input type="email" id="mail" name="mail" required pattern="^([a-z0-9_-]+\.)*[a-z0-9+_-]+@[a-z0-9_-]+(\.[a-z0-9_-]+)*\.[a-z]{2,6}$">#}
+            <input type="email" id="mail" name="mail" required pattern="^[a-z\S]+[a-z0-9+_.-]*@[a-z0-9_-]+\.[a-z0-9_-]+$">
+{#            <input type="email" id="mail" name="mail" required pattern="^/\A[^@]+@([^@\.]+\.)+[^@\.]+\z/$">#}
             <span class="error" aria-live="polite"></span>
         </label>
     </div>

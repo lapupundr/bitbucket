@@ -44,8 +44,13 @@ class Validate implements ValidateInterface
      */
     private function errorRegistration(array $userArr, array $result): array
     {
-        if (strlen($userArr['login']) < 6) {
-            $result['login'] = 'php error: Login must be longer than 6 characters';
+        $checkLogin = filter_var(
+            $userArr['login'],
+            FILTER_VALIDATE_REGEXP,
+            ["options" => ["regexp" => "/^[\S]{6,}$/"]]
+        );
+        if (!$checkLogin) {
+            $result['login'] = 'php error: Login must be longer than 6 characters without spaces';
         }
 
         $checkPass = filter_var(
