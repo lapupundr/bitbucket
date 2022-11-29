@@ -35,3 +35,8 @@ input:focus:invalid {
     color: gray;
     text-decoration: none;
 }
+
+.mistake {
+    margin: 5px 0px;
+    color: red;
+}

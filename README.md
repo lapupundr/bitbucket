@@ -1,1 +1,1 @@
-Manao authorization 
+Registration and Authorization form

@@ -59,10 +59,12 @@ function sendAjaxForm(result_form, form_reg, url) {
             } else {
                 $('#result_form').html('Hello, ' + result.name);
                 document.getElementById('form_reg').hidden = true;
+                document.getElementById('result_form').className = '';
                 btnExit.hidden = false;
                 if (result.hidden === 'false') {
                     document.getElementById('btn_forward').hidden = false;
                     document.getElementById('btn_forward_auth').hidden = false;
+                    document.getElementById('result_form').className = 'mistake';
                     btnExit.hidden = true;
                 }
             }
