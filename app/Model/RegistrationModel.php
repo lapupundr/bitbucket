@@ -37,13 +37,32 @@ class RegistrationModel implements ModelInterface
                 $encryptPass = $encryptPass->execute($pass);
                 $result['password'] = $encryptPass;
                 $result['pass_confirm'] = $encryptPass;
+
+//                if (array_key_exists($userId, $userArr)) {
+//                    $userId = $userId . mt_rand(1000, 100000);
+//                    $_SESSION['userId'] = $userId;
+//                    $_COOKIE['PHPSESSID'] = $userId;
+//                }
+                $userId = $this->randomId($userId, $userArr);
                 $userArr[$userId] = $result;
                 $result = json_encode($result);
 
                 $_SESSION['userName'] = $userArr[$userId]['name'];
                 Connection::updateOperation($userArr);
+                Connection::writeFile();
             }
         }
         return $result;
+    }
+
+    public function randomId($userId, $userArr): string
+    {
+        if (array_key_exists($userId, $userArr)) {
+            $userId = $userId . mt_rand(1000, 100000);
+            $_SESSION['userId'] = $userId;
+            $_COOKIE['PHPSESSID'] = $userId;
+            $this->randomId($userId, $userArr);
+        }
+        return $userId;
     }
 }

@@ -16,5 +16,5 @@ $_SESSION['userId'] = $_COOKIE['PHPSESSID'] ?? session_id();
 $router = new Router();
 $router->match();
 
-Connection::writeFile();
+//Connection::writeFile();
 
