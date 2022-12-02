@@ -38,11 +38,6 @@ class RegistrationModel implements ModelInterface
                 $result['password'] = $encryptPass;
                 $result['pass_confirm'] = $encryptPass;
 
-//                if (array_key_exists($userId, $userArr)) {
-//                    $userId = $userId . mt_rand(1000, 100000);
-//                    $_SESSION['userId'] = $userId;
-//                    $_COOKIE['PHPSESSID'] = $userId;
-//                }
                 $userId = $this->randomId($userId, $userArr);
                 $userArr[$userId] = $result;
                 $result = json_encode($result);
@@ -55,7 +50,14 @@ class RegistrationModel implements ModelInterface
         return $result;
     }
 
-    public function randomId($userId, $userArr): string
+    /**
+     * To prevent collision decided to call this function recursively.
+     *
+     * @param string $userId
+     * @param string[] $userArr
+     * @return string
+     */
+    private function randomId(string $userId, array $userArr): string
     {
         if (array_key_exists($userId, $userArr)) {
             $userId = $userId . mt_rand(1000, 100000);
