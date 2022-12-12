@@ -16,6 +16,9 @@ class Connection implements ConnectionInterface
      */
     public static function readFile(): void
     {
+        if (!is_file(self::FILE_PATH)){
+            file_put_contents(self::FILE_PATH, json_encode([]));
+        }
         $jsonData = file_get_contents(self::FILE_PATH);
         if (!$jsonData) {
             return;
